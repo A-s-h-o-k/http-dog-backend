@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const signUp = require("./routes/SignUp");
 const logIn = require("./routes/Login");
 const cors = require("cors");
+const getList = require('./routes/List')
+ 
 
 // server.once("connection", (e) => {
 //   console.log("server started successfully");
@@ -29,10 +31,7 @@ mongoose
     console.log(e.message, "data base connection failed");
   });
 
-server.get("/getList", (req, res) => {
-  console.log("inside the getList");
-  res.send({ status: 300, description: "askjg kdhajs" });
-});
+server.get("/getList", getList);
 
 server.post("/signUp", signUp);
 
