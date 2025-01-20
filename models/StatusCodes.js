@@ -9,5 +9,5 @@ const StatusCodes = new Schema({
 });
 
 
-const StatusCodeModel = mongoose.model('statusCodes', StatusCodes)
+const StatusCodeModel = mongoose.model('statuscodes', StatusCodes)
 module.exports  = StatusCodeModel
