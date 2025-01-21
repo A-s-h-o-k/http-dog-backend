@@ -10,13 +10,14 @@ const {
   saveList,
   getSavedList,
   getListDataById,
+  deleteList,
 } = require("./routes/List");
 
 server.use(express.json());
 server.use(
   cors({
     origin: "*",
-    methods: "GET,POST",
+    methods: "GET,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
 );
@@ -45,5 +46,7 @@ server.post("/saveList", saveList);
 server.get("/getSavedList", getSavedList);
 
 server.get("/getSavedListData", getListDataById);
+
+server.delete("/deleteSavedList", deleteList);
 
 server.listen(3001);

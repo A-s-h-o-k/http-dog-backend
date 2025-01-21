@@ -84,10 +84,23 @@ const getListDataById = async (req, res) => {
   }
 };
 
+const deleteList = async (req, res) => {
+  try {
+    const { listId } = req.query;
+    const del = await UserSavedStatusModel.deleteOne({
+      _id: new mongoose.Types.ObjectId(listId),
+    });
+    return res.json(del);
+  } catch (e) {
+    return res.json(e);
+  }
+};
+
 module.exports = {
   getList,
   searchList,
   saveList,
   getSavedList,
   getListDataById,
+  deleteList,
 };
